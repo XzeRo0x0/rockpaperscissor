@@ -1,10 +1,10 @@
-//Rock,Paper and Scissor Game:- A7
+//Rock,Paper and Scissor Game:-
 
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
 
-//Funtion To Check The Options.[To Choose The Winner.]
+//Funtion To Check The Options. To Choose The Winner.
 int RockPaperScissor(char user,char comp){
     //CONDITION-1:
     // RR PP SS 
@@ -52,13 +52,13 @@ void Result(int reply){
     }
 }
 
-//Function which helps comp to choose it's option.
+//Function To Choose For Tho Computer;
 void cmp(int number,char *ptr){
     if(number>0 && number<=33){
             *ptr='S';
     }
     else if(number>=34 && number<=66){
-        
+
         *ptr='R';
     }
     else{
@@ -70,29 +70,41 @@ void cmp(int number,char *ptr){
 int main(){
         
         char user,comp;
+        char option;
         int number;
         char* ptr = &comp;
-        srand(time(0));         //Generates nuw no after 0sec.
-        number=rand()%100+1;    //Generated a random number between 1 to 100.
-        cmp(number,ptr);
 
-        printf("\n************************************************************************\n");
-        printf("\t\tWelcome To The Game Player\n\tThis Game Will Be Between You And The Computer\n\t\t\tEnjoy The Game\t\t\t\t-A7\n");
-        printf("************************************************************************\n");
+        printf("\n*************************************************************************************\n");
+        printf("\t\t\tWelcome To The Game Player\n\t\tThis Game Will Be Between You And The Computer\n\t\t\t\tEnjoy The Game\t\t\t\t-A7\n");
+        printf("*************************************************************************************\n");
         printf("\nTo Play This Game Choose:\n'R'-->ROCK\n'P'-->PAPER\n'S'-->SCISSOR\n");
-        printf("\n************************************************************************\n");
+        printf("\n*************************************************************************************\n");
 
-        printf("The Computer Choose It's Option\n");
 
-        printf("Enter your chooice from['R'|'P'|'S']:- ");
-        scanf("%c",&user);
-        int reply = RockPaperScissor(user,comp);
+        while(1){
 
-        if(reply!=2){
-        printf("You Choose -->'%c' and The Computer Choose -->'%c'\n",user,comp);
-        Result(reply);
-        printf("Thankyou! For Playing The Game.....\n");
-        }
+                    printf("The Computer Has Choosen It's Option\n");        
+                    printf("Enter your chooice from['R'|'P'|'S']:- ");
+                    scanf(" %c",&user);
+                   
+                    srand(time(0));         //Generates nuw no after 0sec.
+                    number=rand()%100+1;    //Generated a random number between 1 to 100.
+                    cmp(number,ptr);
+                    int reply = RockPaperScissor(user,comp);
+
+                    if(reply!=2){
+                    printf("You Choose -->'%c' and The Computer Choose -->'%c'\n",user,comp);
+                    Result(reply);
+                    printf("Do you want to continue the game??[Y/N]: ");
+                    scanf(" %c",&option);
+                    if(option!='Y' && option!='y'){
+                    break;
+                    }
+                    }
+                }
+
+        printf("\nThankyou! For Playing The Game.....\n");
 
     return 0;
+
 }
