@@ -1,10 +1,10 @@
-//Rock,Paper and Scissor Game:-
+//Rock,Paper and Scissor Game:- A7
 
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
 
-//Funtion To Check The Options. To Choose The Winner.
+//Funtion To Check The Options.[To Choose The Winner.]
 int RockPaperScissor(char user,char comp){
     //CONDITION-1:
     // RR PP SS 
@@ -52,7 +52,7 @@ void Result(int reply){
     }
 }
 
-//Function To Choose For Tho Computer;
+//Function which helps comp to choose it's option.
 void cmp(int number,char *ptr){
     if(number>0 && number<=33){
             *ptr='S';
